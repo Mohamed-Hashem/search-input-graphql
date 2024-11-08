@@ -1,5 +1,5 @@
 import React, { StrictMode } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import { createRoot } from "react-dom/client";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import Layout from "./Layout.jsx";
@@ -12,35 +12,46 @@ import axe from "@axe-core/react";
 
 import "./index.css";
 
-const router = createBrowserRouter([
+const router = createHashRouter(
+    [
+        {
+            path: "/",
+            element: <Layout />,
+            errorElement: (
+                <Layout>
+                    <ErrorPage />
+                </Layout>
+            ),
+            children: [
+                {
+                    path: "/",
+                    element: <HomePage />,
+                },
+                {
+                    path: "/home",
+                    element: <HomePage />,
+                },
+                {
+                    path: "/search",
+                    element: <SearchPage />,
+                },
+                {
+                    path: "/search/:id",
+                    element: <DetailPage />,
+                },
+            ],
+        },
+    ],
     {
-        path: "/",
-        element: <Layout />,
-        errorElement: (
-            <Layout>
-                <ErrorPage />
-            </Layout>
-        ),
-        children: [
-            {
-                path: "/",
-                element: <HomePage />,
-            },
-            {
-                path: "/home",
-                element: <HomePage />,
-            },
-            {
-                path: "/search",
-                element: <SearchPage />,
-            },
-            {
-                path: "/search/:id",
-                element: <DetailPage />,
-            },
-        ],
+        future: {
+            v7_fetcherPersist: true,
+            v7_normalizeFormMethod: true,
+            v7_partialHydration: true,
+            v7_relativeSplatPath: true,
+            v7_skipActionErrorRevalidation: true,
+        },
     },
-]);
+);
 
 const client = new ApolloClient({
     uri: "https://sparrow-staging.escapes.tech/graphql/",
