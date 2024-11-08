@@ -1,8 +1,5 @@
-# React + Vite
+# Search Input by Graph QL
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### live demo Link : [https://mohamed-hashem.github.io/alert-notification/](https://mohamed-hashem.github.io/search-input-graphql/)
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### Technologies : React - JavaScript - CSS - AXE Core For Accessibility - lodash debounce - GraphQL - React Router Dom
