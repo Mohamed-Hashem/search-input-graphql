@@ -47,7 +47,7 @@ const client = new ApolloClient({
     cache: new InMemoryCache(),
 });
 
-axe(React, ReactDOM, 1000);
+axe(React, ReactDOM, 1000); // to run axe-core for 1000ms on the entire app to find accessibility issues
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
